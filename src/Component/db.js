@@ -32,5 +32,11 @@ const db=[
         cg:"#4C6EF5",
         c1:"6",  c2:"#b8c0ff"
     }
+    ,
+    {
+        c:"open",
+        cg:"#4C6EF5",
+        c1:"7",  c2:"#b8c0ff"
+    }
 ]
 export default db;
