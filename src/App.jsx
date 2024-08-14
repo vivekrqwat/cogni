@@ -8,27 +8,34 @@ import P from './Component/P'
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import db from './Component/db'
-import"./App.css"
+import"./app.css"
+import { OpenInNew } from '@mui/icons-material'
 
 function App() {
   const [count, setCount] = useState(0)
   const [list,setlist]=useState(db)
+  let c=0;
   const delete1=(key)=>{
     let newlist=[...list];
-    newlist.splice(key,1);
-    setlist([...newlist])
+  let newk=newlist.filter((i)=>i.c1!==key)
+  console.log(newk)
+  
+  setlist([...newk])
     console.log(key)
 
   }
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [d,setd]=useState("")
+  const [d,setd]=useState({})
   const handlesubmit=(e)=>{
     e.preventDefault();
+    console.log(d)
     setlist([...list,d])
+    setOpen(false)
 
   }
+  console.log(open)
   return (
     <div className='app'>
      <NAv></NAv>
@@ -69,16 +76,35 @@ function App() {
           placeholder='Search by title'></input>
         </Box>
         <Modal open={open}
-        close={handleClose}>
-          
-          <Box width={"1940px"} height={"540px"} display={"flex"} justifyContent={"center"} alignItems={"center"} >
-            <form onSubmit={handlesubmit}>
+        onClose={()=>{setOpen(!open)}}
       
-            <TextField placeholder='enter text' onChange={(e)=>{setd({c:e.target.value})}}></TextField>
+        sx={{border:"2px solid red",
+          display:"flex",justifyContent:"center",alignItems:"center",
+        }}>
+          
+         
+            <form onSubmit={handlesubmit} style={{
+              background:"white",
+              borderRadius:"10px",
+            
+              width:"340px",
+              height:"340px",border:"2px solid green",
+              display:"flex" ,justifyContent:"space-around",flexDirection:"column"}}>
+                <Typography>ADd Challenge</Typography>
+      
+            <TextField placeholder='enter text' 
+            variant='outlined'
+            onChange={(e)=>{setd({
+               c:"closed",
+               cg:"#646669",
+               ch:e.target.value,
+               c2:"#e9ecef"
+              
+              })}}></TextField>
             <Button type='submit' variant='contained'>submit</Button>
            
         
-          </form></Box>
+          </form>
          
         </Modal>
         <Button  startIcon={<AddIcon></AddIcon>} variant='outlined' onClick={handleOpen}> Add Challenge</Button>
@@ -93,8 +119,8 @@ function App() {
       <br></br>
       {
         list.map((i,index)=>{
-          return   <P key={index} 
-          color={i.cg} c1={i.c1} c={i.c} c2={i.c2} d={delete1} ></P>
+          return   <P key={index}
+          color={i.cg} c1={i.c1} c={i.c} c2={i.c2} d={delete1} ch={i.ch} key1={index+1}></P>
         })
       }
     
