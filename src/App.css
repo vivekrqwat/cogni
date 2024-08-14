@@ -1,10 +1,1 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
-.app{
-    width: "100%";
-    border: "2px solid green";
-}
-.b{
-  
-    background: rgb(229,234,252);
-    background: linear-gradient(90deg, rgba(229,234,252,1) 0%, rgba(255,255,255,1) 55%, rgba(245,245,245,1) 100%);
-}
+
