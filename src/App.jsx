@@ -8,7 +8,7 @@ import P from './Component/P'
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import db from './Component/db'
-import"./app.css"
+
 import { OpenInNew } from '@mui/icons-material'
 
 function App() {
